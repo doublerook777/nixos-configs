@@ -19,6 +19,12 @@
 	    };
   };
 
+  programs.git = {
+      enable = true;
+      userName = "caelum";
+      userEmail = "sjgupta30@gmail.com";
+  };
+
   programs.wlogout = {
       enable = true;
       layout = [
