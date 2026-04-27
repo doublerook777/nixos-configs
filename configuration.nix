@@ -127,6 +127,7 @@
     strawberry
     nh
     fastfetch
+    vesktop
   ];
 
   fonts.packages = with pkgs; [

@@ -8,7 +8,7 @@
           add_newline = false;
           character = {
               success_symbol = "[->](bold green)";
-              error_symbol = "[->](bold red)";
+              error_symbol = "[->](bold #d20f39)";
           };
           directory = {
               style = "bold #89b4d4";
@@ -48,7 +48,8 @@
         background = "#1a1a2e";
         foreground = "#d4cdb8";
         cursor = "#e8789a";
-        selection_background = "#16213e";
+        selection_background = "#e8789a";
+        selection_foreground = "#1a1a2e";
 
         # Normal colors
         color0 = "#1a1a2e";
