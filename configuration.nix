@@ -126,6 +126,7 @@
     mpv
     strawberry
     nh
+    fastfetch
   ];
 
   fonts.packages = with pkgs; [
