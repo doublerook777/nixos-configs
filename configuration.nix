@@ -125,6 +125,7 @@
     swww
     mpv
     strawberry
+    nh
   ];
 
   fonts.packages = with pkgs; [
