@@ -1,0 +1,202 @@
+{ config, pkgs, ... }:
+
+{
+  programs.waybar = {
+    enable = true;
+
+    settings = {
+      mainBar = {
+        layer = "top";
+        position = "top";
+        height = 28;
+        spacing = 6;
+
+        modules-left = [
+          "niri/workspaces"
+          "niri/window"
+        ];
+
+        modules-center = [
+          "clock"
+        ];
+
+        modules-right = [
+          "media"
+          "pulseaudio"
+          "backlight"
+          "network"
+          "bluetooth"
+          "cpu"
+          "memory"
+          "battery"
+          "custom/power"
+        ];
+
+        "niri/workspaces" = {
+          format = "{icon}";
+          format-icons = {
+            active = "●";
+            default = "○";
+          };
+        };
+
+        "niri/window" = {
+          max-length = 50;
+        };
+
+        "clock" = {
+          format = "{:%a %d %b  %H:%M}";
+          format-alt = "{:%A, %B %d %Y}";
+          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+        };
+
+        "cpu" = {
+          format = " 󰻠 {usage}%";
+          interval = 1;
+        };
+
+        "memory" = {
+          format = " 󰘚 {}%";
+          interval = 2;
+        };
+
+        "battery" = {
+          states = {
+            warning = 30;
+            critical = 15;
+          };
+          format = "{icon} {capacity}%";
+          format-charging = "󰂄 {capacity}%";
+          format-icons = [ "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
+        };
+
+        "network" = {
+          on-click = "kitty --title nmtui -e nmtui";
+          format-wifi = "󰤨 {essid}";
+          format-disconnected = "󰤭 disconnected";
+          tootip = true;
+          tooltip-text = "{signalStrength}%";
+        };
+
+        "bluetooth" = {
+          format = "󰂯";
+          format-connected = "󰂱 {device_alias}";
+          format-connected-battery = "󰂱 {device_alias} {device_battery_percentage}%";
+          format-disabled = "󰂲";
+          on-click = "blueman-manager";
+          tooltip-text = "{controller_alias} {controller_address}";
+        };
+
+        "pulseaudio" = {
+          format = "{icon} {volume}%";
+          format-muted = "󰝟 muted";
+          format-icons = {
+            default = [ "󰕿" "󰖀" "󰕾" ];
+          };
+          on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        };
+
+        "backlight" = {
+          format = "{icon} {percent}%";
+          format-icons = [ "󰃞" "󰃟" "󰃠" ];
+        };
+
+        "mpris" = {
+          format = "{player_icon} {title} - {artist}";
+          format-paused = " {title} - {artist}";
+          player-icons = {
+            default = "▶";
+            spotify = "";
+          };
+          max-length = 40;
+        };
+
+        "custom/power" = {
+          format = "⏻";
+          on-click = "wlogout";
+          tooltip = false;
+        };
+      };
+    };
+
+    style = ''
+      * {
+        font-family: "JetBrainsMono Nerd Font";
+        font-size: 13px;
+        min-height: 0;
+        border: none;
+        border-radius: 0;
+      }
+
+      window#waybar {
+        background-color: rgba(14, 14, 18, 0.9);
+        color: #cdd6f4;
+      }
+
+      .modules-left, .modules-right, .modules-center {
+        margin: 4px 8px;
+      }
+
+      #workspaces button {
+        padding: 0 4px;
+        color: #6c7086;
+        background: transparent;
+      }
+
+      #workspaces button.active {
+        color: #cba6f7;
+      }
+
+      #clock {
+        color: #cdd6f4;
+        padding: 0 10px;
+      }
+
+      #battery {
+        color: #a6e3a1;
+      }
+
+      #battery.warning {
+        color: #fab387;
+      }
+
+      #battery.critical {
+        color: #f38ba8;
+      }
+
+      #network {
+        color: #89dceb;
+      }
+
+      #bluetooth {
+        color: #89dceb;
+      }
+
+      #pulseaudio {
+        color: #f5c2e7;
+      }
+
+      #backlight {
+        color: #f9e2af;
+      }
+
+      #cpu {
+        color: #89b4fa;
+      }
+
+      #memory {
+        color: #a6e3a1;
+      }
+
+      #mpris {
+        color: #cba6f7;
+      }
+
+      #custom-power {
+        color: #f38ba8;
+        padding: 0 8px;
+        margin-right: 4px;
+      }
+    '';
+  };
+}
