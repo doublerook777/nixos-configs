@@ -4,6 +4,7 @@
   imports = [
       ./modules/niri.nix
       ./modules/waybar.nix
+      ./modules/terminal.nix
   ];
 
   home.username = "caelum";
