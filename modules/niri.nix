@@ -101,6 +101,11 @@
       Mod+Shift+7 { move-column-to-workspace 7; }
       Mod+Shift+8 { move-column-to-workspace 8; }
       Mod+Shift+9 { move-column-to-workspace 9; }
+      
+      Mod+BracketLeft  { consume-or-expel-window-left; }
+      Mod+BracketRight { consume-or-expel-window-right; }
+
+      Mod+Period { expel-window-from-column; }
 
       // function keys for volume and brightness
 
@@ -118,7 +123,8 @@
       XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
 
       // resizing windows and fullscreen
-    
+
+      Mod+R { switch-preset-column-width; }
       Mod+Shift+R { switch-preset-window-height; }
       Mod+Ctrl+R { reset-window-height; }
       Mod+F { maximize-column; }
