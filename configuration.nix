@@ -74,7 +74,7 @@
   # Display manager
   programs.silentSDDM = {
       enable = true;
-      theme = "everforest";
+      theme = "default";
     };
 
   # Configure keymap in X11
