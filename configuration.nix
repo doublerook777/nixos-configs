@@ -31,6 +31,15 @@
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
+  
+  # keep the wifi drivers loaded peoperly
+  boot.kernelModules = [ "rtw89_8852ce" ];
+
+  # disabling wifi power saving
+  networking.networkmanager.wifi.powersave = false;
+  boot.extraModprobeConfig = ''
+      options rtw89_8852ce disable_ps_mode = 1
+  '';
 
   # Bluetooth
   hardware.bluetooth.enable = true;
@@ -65,7 +74,7 @@
   # Display manager
   programs.silentSDDM = {
       enable = true;
-      theme = "rei";
+      theme = "everforest";
     };
 
   # Configure keymap in X11
