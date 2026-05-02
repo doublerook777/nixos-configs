@@ -21,16 +21,20 @@
         ];
 
         modules-right = [
-          "media"
+          "tray"
+          "mpris"
           "pulseaudio"
           "backlight"
           "network"
-          "bluetooth"
           "cpu"
           "memory"
           "battery"
           "custom/power"
         ];
+
+        "tray" = {
+            spacing = 8;
+        };
 
         "niri/workspaces" = {
           format = "{icon}";
@@ -74,17 +78,8 @@
           on-click = "kitty --title nmtui -e nmtui";
           format-wifi = "󰤨 {essid}";
           format-disconnected = "󰤭 disconnected";
-          tootip = true;
+          tooltip = true;
           tooltip-text = "{signalStrength}%";
-        };
-
-        "bluetooth" = {
-          format = "󰂯";
-          format-connected = "󰂱 {device_alias}";
-          format-connected-battery = "󰂱 {device_alias} {device_battery_percentage}%";
-          format-disabled = "󰂲";
-          on-click = "blueman-manager";
-          tooltip-text = "{controller_alias} {controller_address}";
         };
 
         "pulseaudio" = {
@@ -168,8 +163,8 @@
         color: #89dceb;
       }
 
-      #bluetooth {
-        color: #89dceb;
+      #tray {
+        padding: 0 8px;
       }
 
       #pulseaudio {
