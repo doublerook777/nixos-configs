@@ -32,17 +32,14 @@
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
   
-  # keep the wifi drivers loaded peoperly
-  boot.kernelModules = [ "rtw89_8852ce" ];
-
   # wifi optimizations
   environment.etc."NetworkManager/conf.d/wifi.conf".text = ''
     [connection]
     wifi.powrsave = 2
-    wifi.cloned-mac-address=stable
+    wifi.cloned-mac-address=permanent
 
     [device]
-    wifi.scan-rand-mac-address = no
+    wifi.scan-rand-mac-address=no
   '';
   networking.nameservers = ["8.8.8.8" "1.1.1.1"];
 
