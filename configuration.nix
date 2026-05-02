@@ -35,11 +35,16 @@
   # keep the wifi drivers loaded peoperly
   boot.kernelModules = [ "rtw89_8852ce" ];
 
-  # disabling wifi power saving
-  networking.networkmanager.wifi.powersave = false;
-  boot.extraModprobeConfig = ''
-      options rtw89_8852ce disable_ps_mode = 1
+  # wifi optimizations
+  environment.etc."NetworkManager/conf.d/wifi.conf".text = ''
+    [connection]
+    wifi.powrsave = 2
+    wifi.cloned-mac-address=stable
+
+    [device]
+    wifi.scan-rand-mac-address = no
   '';
+  networking.nameservers = ["8.8.8.8" "1.1.1.1"];
 
   # Bluetooth
   hardware.bluetooth.enable = true;
