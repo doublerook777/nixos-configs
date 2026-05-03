@@ -159,6 +159,8 @@
     cheese
     dust
     duf
+    usbutils
+    pciutils
   ];
 
   fonts.packages = with pkgs; [
