@@ -21,8 +21,8 @@
         ];
 
         modules-right = [
-          "tray"
           "mpris"
+          "tray"
           "pulseaudio"
           "backlight"
           "network"

@@ -77,7 +77,7 @@
   programs.silentSDDM = {
       enable = true;
       theme = "default";
-    };
+  };
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -86,6 +86,23 @@
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
+  # pipewire for high-res auddio
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+    alsa.support32Bit = true;
+  
+    extraConfig.pipewire."92-low-latency" = {
+      "context.properties" = {
+        "default.clock.rate" = 48000;
+        "default.clock.allowed-rates" = [ 44100 48000 88200 96000 176400 192000 ];
+        "default.clock.quantum" = 1024;
+        "default.clock.min-quantum" = 32;
+        "default.clock.max-quantum" = 2048;
+      };
+    };
+  };
   # Enable sound.
   # services.pulseaudio.enable = true;
   # OR
@@ -139,6 +156,9 @@
     nh
     fastfetch
     vesktop
+    cheese
+    dust
+    duf
   ];
 
   fonts.packages = with pkgs; [
