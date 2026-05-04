@@ -49,15 +49,23 @@
   services.blueman.enable = true;
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
-
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-  #services.xserver = {
-  #    enable = true;
-  #    autoRepeatDelay = 200;
-  #    autoRepeatInterval = 35;
-  #};
   
+  # Enable hybernation using swap 
+  swapDevices = [
+      { device = "/swapfile"; size = 8192; }
+  ];
+
+  boot.resumeDevice = "/dev/nvme0n1p8";
+  boot.kernelParams = [ 
+      "resume_offset=22482944"
+      "mem_sleep_default=deep"
+  ];
+
+  systemd.sleep.extraConfig = ''
+      HibernateMode=platform shutdown
+      HibernateDelaySec=30m
+  '';
+
   # Enable niri
   programs.niri.enable = true;
   

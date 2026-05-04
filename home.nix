@@ -36,6 +36,7 @@
         { label = "shutdown"; text = "Shutdown"; keybind = "s"; action = "systemctl poweroff"; }
         { label = "reboot"; text = "Reboot"; keybind = "r"; action = "systemctl reboot"; }
         { label = "logout"; text = "Logout"; keybind = "l"; action = "niri msg action quit"; }
+        { label = "hibernate"; text = "Hibernate"; keybind = "h"; action = "systemctl hibernate"; }
       ];
   };
 
