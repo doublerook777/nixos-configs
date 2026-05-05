@@ -13,9 +13,8 @@
         touchpad {
             tap
             natural-scroll
-            disable-while-typing
+            dwt
         }
-
         focus-follows-mouse max-scroll-amount="0%"
 
     }
