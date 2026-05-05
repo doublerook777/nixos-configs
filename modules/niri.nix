@@ -40,7 +40,7 @@
       Print { screenshot; }
       Ctrl+Print { screenshot-screen; }
       Alt+Print { screenshot-window; }
-      Alt+F4 { spawn "wlogout"; }
+      Alt+F4 { spawn "wlogout" "-b" "2"; }
 
       // Focus and window movement
         

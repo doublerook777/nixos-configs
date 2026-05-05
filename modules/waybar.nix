@@ -108,7 +108,7 @@
 
         "custom/power" = {
           format = "⏻";
-          on-click = "wlogout";
+          on-click = "wlogout -b 2";
           tooltip = false;
         };
       };
