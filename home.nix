@@ -45,4 +45,14 @@
       defaultEditor = true;
       vimAlias = true;
   };
+
+  xdg.desktopEntries.yazi = {
+      name = "yazi";
+      genericName = "Files";
+      exec = "kitty yazi";
+      terminal = false;
+      icon = "yazi";
+      categories = [ "Utility" "Core" "System" ];
+  };
+
 }

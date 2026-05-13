@@ -86,12 +86,6 @@
       enable = true;
       theme = "silvia";
   };
-  #services.displayManager.sddm = {
-  #    enable = true;
-  #    wayland.enable = true;
-  #    theme = "qylock";
-  #};
-
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
@@ -179,25 +173,6 @@
     gnome-calendar
     btop
     obs-studio
-
-    # Hollow Knight SDDM theme
-    #(stdenv.mkDerivation {
-    #  name = "sddm-qylock-theme";
-    #  src = fetchFromGitHub {
-    #    owner = "Darkkal44";
-    #    repo = "qylock";
-    #    rev = "master";
-    #    hash ="sha256-az9oMO34GRk+2PwQ6gsr7aR3vZ3Hbj/O+cEQJshl2fo="; 
-    #  };
-    #  installPhase = ''
-    #    mkdir -p $out/share/sddm/themes/qylock
-    #    cp -r * $out/share/sddm/themes/qylock/
-    #  '';
-    #})
-    ## Required dependencies for SDDM QML themes
-    #libsForQt5.qt5.qtgraphicaleffects
-    #libsForQt5.qt5.qtquickcontrols2
-    #libsForQt5.qt5.qtsvg
   ];
 
   fonts.packages = with pkgs; [
