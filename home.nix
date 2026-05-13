@@ -15,7 +15,7 @@
 	    shellAliases = {
 	        hcheck = "echo looks good";
 	        rebuild = "sudo nixos-rebuild switch --flake ~/nixos-configs#caelums-nix";
-	        update = "sudo nix flake update ~/nixos-configs";
+	        update = "sudo nix flake update --flake ~/nixos-configs";
           clean = "nix-collect-garbage -d";
 	    };
   };
