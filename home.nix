@@ -55,4 +55,53 @@
       categories = [ "Utility" "Core" "System" ];
   };
 
+  programs.fuzzel = {
+    enable = true;
+    settings = {
+      main = {
+        font = "JetBrainsMono Nerd Font:size=12";
+        terminal = "kitty";
+        prompt = "'  '";
+        # ensures the cursor starts after the icon
+        letter-spacing = 0;
+        # Set layer to overlay for Wayland integration on Niri
+        layer = "overlay";
+        # Disable icons
+        show-icons = "no";
+        # Layout parameters
+        width = 30;
+        lines = 10;
+        vertical-padding = 15;
+        horizontal-padding = 12;
+        anchor = "center";
+        match-mode = "fuzzy";
+      };
+  
+      colors = {
+        background = "1c3038e6";
+        text = "e8f1d8ff";
+        match = "89dcebff";
+        # Total Selection: #e87e14 (orange base) + 'cc' (80% opacity)
+        selection = "f68bcfcc";
+        # TEXT on Active Selection (Dark base color)
+        selection-text = "1c3038ff";
+        # Subtle BORDER color
+        # Lightly transparent 'bf' (75% opacity)
+        border = "f68bcfff";
+        # Placeholder/subtle text color
+        placeholder = "4a4f3bbf";
+        selection-radius = 10;
+      };
+  
+      border = {
+        width = 2;
+        radius = 12;
+      };
+      
+      dmenu = {
+        exit-immediately-if-empty = "yes";
+      };
+    };
+  };
+
 }

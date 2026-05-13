@@ -150,6 +150,6 @@
       Mod+Shift+V { switch-focus-between-floating-and-tiling; }
 
       Mod+W { toggle-column-tabbed-display; }
-    }
+  }
   '';
 }
