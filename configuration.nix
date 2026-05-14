@@ -190,6 +190,7 @@
     zip
     p7zip
     gnutar
+    bash-completion
   ];
 
   fonts.packages = with pkgs; [

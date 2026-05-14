@@ -12,6 +12,7 @@
   home.stateVersion = "25.11";
   programs.bash = {
 	    enable = true;
+      enableCompletion = true;
 	    shellAliases = {
 	        hcheck = "echo looks good";
 	        rebuild = "sudo nixos-rebuild switch --flake ~/nixos-configs#caelums-nix";
