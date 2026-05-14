@@ -130,6 +130,19 @@
     ];
   };
 
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    # Add common libraries your binary might need here
+    stdenv.cc.cc
+    zlib
+    fuse3
+    icu
+    nss
+    openssl
+    curl
+    expat
+  ];
+
   programs.firefox.enable = true;
   
    # List packages installed in system profile.
@@ -173,6 +186,10 @@
     gnome-calendar
     btop
     obs-studio
+    unzip
+    zip
+    p7zip
+    gnutar
   ];
 
   fonts.packages = with pkgs; [
