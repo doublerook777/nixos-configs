@@ -191,6 +191,7 @@
     p7zip
     gnutar
     bash-completion
+    swappy
   ];
 
   fonts.packages = with pkgs; [
