@@ -13,6 +13,13 @@
   programs.bash = {
 	    enable = true;
       enableCompletion = true;
+      initExtra = ''
+          bind "set show-all-if-ambiguous on"
+          bind 'TAB: menu-complete'
+          bind '"\e[Z": menu-complete-backward'
+          bind "set completion-ignore-case on"
+          bind "set colored-stats on"
+      '';
 	    shellAliases = {
 	        hcheck = "echo looks good";
 	        rebuild = "sudo nixos-rebuild switch --flake ~/nixos-configs#caelums-nix";
