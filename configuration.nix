@@ -144,8 +144,7 @@
   ];
 
   programs.firefox.enable = true;
-  
-   # List packages installed in system profile.
+  # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     niri
@@ -192,6 +191,8 @@
     gnutar
     bash-completion
     swappy
+    python3
+    python3Packages.pip
   ];
 
   fonts.packages = with pkgs; [
