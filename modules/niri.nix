@@ -26,6 +26,14 @@
   spawn-at-startup "swww-daemon"
   spawn-at-startup "bash" "-c" "~/nixos-configs/scripts/wallpaper.sh"
   
+  window-rule {
+    match at-startup=true
+    default-column-width { proportion 1.0; }
+  }
+
+  layout {
+      center-focused-column "on-overflow"
+  }
 
   binds {
       // Essentials

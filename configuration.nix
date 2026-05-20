@@ -190,9 +190,9 @@
     p7zip
     gnutar
     bash-completion
-    swappy
     python3
     python3Packages.pip
+    bvi
   ];
 
   fonts.packages = with pkgs; [

@@ -23,6 +23,7 @@
         modules-right = [
           "mpris"
           "tray"
+          "pulseaudio#microphone"
           "pulseaudio"
           "backlight"
           "network"
@@ -90,6 +91,14 @@
           };
           on-click = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         };
+
+        "pulseaudio#microphone" = {
+          format = "{format_source}";
+          format-source = "󰍬 {volume}%";
+          format-source-muted = "󰍭 muted";
+          on-click = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+          tooltip = false;
+        };        
 
         "backlight" = {
           format = "{icon} {percent}%";
@@ -169,6 +178,11 @@
 
       #pulseaudio {
         color: #f5c2e7;
+      }
+
+      #pulseaudio.microphone {
+        color: #e8789a;
+        padding: 0 8px;
       }
 
       #backlight {
