@@ -95,7 +95,7 @@
         "pulseaudio#microphone" = {
           format = "{format_source}";
           format-source = "󰍬 {volume}%";
-          format-source-muted = "󰍭 muted";
+          format-source-muted = "󰍭 ";
           on-click = "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
           tooltip = false;
         };        

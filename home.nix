@@ -25,6 +25,10 @@
 	        rebuild = "sudo nixos-rebuild switch --flake ~/nixos-configs#caelums-nix";
 	        update = "sudo nix flake update path:/home/caelum/nixos-configs";
           clean = "nix-collect-garbage -d";
+          ls = "eza --icons --color=always";
+          ll = "eza -l --icons --color=always";
+          la = "eza -la --icons --color=always";
+          lt = "eza --tree --icons --color=always";
 	    };
   };
 
@@ -41,10 +45,7 @@
   programs.wlogout = {
       enable = true;
       layout = [
-        { label = "shutdown"; text = "Shutdown"; keybind = "s"; action = "systemctl poweroff"; }
-        { label = "reboot"; text = "Reboot"; keybind = "r"; action = "systemctl reboot"; }
-        { label = "logout"; text = "Logout"; keybind = "l"; action = "niri msg action quit"; }
-        { label = "hibernate"; text = "Hibernate"; keybind = "h"; action = "systemctl hibernate"; }
+        { label = "shutdown"; text = "Shutdown"; keybind = "s"; action = "systemctl poweroff"; } { label = "reboot"; text = "Reboot"; keybind = "r"; action = "systemctl reboot"; } { label = "logout"; text = "Logout"; keybind = "l"; action = "niri msg action quit"; } { label = "hibernate"; text = "Hibernate"; keybind = "h"; action = "systemctl hibernate"; }
       ];
   };
 
