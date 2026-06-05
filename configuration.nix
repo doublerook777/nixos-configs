@@ -35,7 +35,7 @@
   # wifi optimizations
   environment.etc."NetworkManager/conf.d/wifi.conf".text = ''
     [connection]
-    wifi.powrsave = 2
+    wifi.powersave = 2
     wifi.cloned-mac-address=permanent
 
     [device]
@@ -233,10 +233,7 @@
     gnutar
     bash-completion
     python3
-    python3Packages.pip
-    bvi
-    easyeffects
-    rnnoise-plugin
+    uv
   ];
 
   fonts.packages = with pkgs; [

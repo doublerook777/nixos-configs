@@ -26,10 +26,6 @@
   spawn-at-startup "swww-daemon"
   spawn-at-startup "bash" "/home/caelum/nixos-configs/scripts/wallpaper.sh"
   
-  window-rule {
-    match at-startup=true
-  }
-
   layout {
       center-focused-column "on-overflow"
   }
