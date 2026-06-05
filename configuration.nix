@@ -234,6 +234,7 @@
     bash-completion
     python3
     uv
+    libnotify
   ];
 
   fonts.packages = with pkgs; [

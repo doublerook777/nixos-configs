@@ -1,26 +1,28 @@
 { config, pkgs, ... }:
 
 {
-  services.mako = {
-    enable = true;
-    settings = {
-      font = "JetBrainsMono Nerd Font 12";
-      background-color = "#1e1e2e";
-      text-color = "#cdd6f4";
-      border-color = "#cba6f7";
-      border-radius = 8;
-      border-size = 2;
-      padding = "10,14";
-      margin = "8";
-      width = 320;
-      height = 100;
-      default-timeout = 5000;
+  services.mako.enable = true;
 
-      # urgency colors
-      "[urgency=high]" = {
-        border-color = "#f38ba8";
-        default-timeout = 0;  # stays until dismissed
-      };
-    };
-  };
+  xdg.configFile."mako/config".text = ''
+    font=JetBrainsMono Nerd Font 12
+    background-color=#1e1e2eFF
+    text-color=#cdd6f4FF
+    border-color=#cba6f7FF
+    border-radius=8
+    border-size=2
+    padding=10,14
+    margin=8
+    width=320
+    height=100
+    default-timeout=5000
+    anchor=top-right
+    layer=overlay
+
+    [urgency=low]
+    border-color=#89b4faFF
+
+    [urgency=critical]
+    border-color=#f38ba8FF
+    default-timeout=0
+  '';
 }
