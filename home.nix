@@ -113,4 +113,9 @@
     };
   };
 
+  home.packages = with pkgs; [
+    localsend
+    xfce.thunar
+  ];
+
 }
