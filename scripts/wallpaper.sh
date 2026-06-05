@@ -1,11 +1,16 @@
 #!/bin/bash
-sleep 2
+
+export WAYLAND_DISPLAY=wayland-1
+export XDG_RUNTIME_DIR=/run/user/1000
 
 WALLPAPER_DIR="/home/caelum/nixos-configs/wallpapers"
 
+until swww query &>/dev/null; do
+  sleep 1
+done
+
 while true; do
-  for img in "$WALLPAPER_DIR"/*; do
-    swww img "$img" --transition-type wave --transition-duration 2
-    sleep 300
-  done
+  img=$(find "$WALLPAPER_DIR" -type f | shuf -n 1)
+  swww img "$img" --transition-type wave --transition-duration 2
+  sleep 120
 done

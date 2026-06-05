@@ -158,6 +158,19 @@
     ];
   };
 
+    # Enable Thunar service natively
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs.xfce; [
+      thunar-archive-plugin # Allows right-click "Extract Here"
+      thunar-volman         # Manages removable drives
+    ];
+  };
+
+  # Essential background services for a standalone window manager setup
+  services.gvfs.enable = true;    # Fixes Trash, Network shares, and USB mounting
+  services.tumbler.enable = true; # Enables image and file thumbnails
+
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     # Add common libraries your binary might need here

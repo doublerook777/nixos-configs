@@ -24,7 +24,7 @@
   spawn-at-startup "nm-applet" "--indicator"
   spawn-at-startup "blueman-applet"
   spawn-at-startup "swww-daemon"
-  spawn-at-startup "bash" "-c" "~/nixos-configs/scripts/wallpaper.sh"
+  spawn-at-startup "bash" "/home/caelum/nixos-configs/scripts/wallpaper.sh"
   
   window-rule {
     match at-startup=true

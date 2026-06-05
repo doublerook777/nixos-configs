@@ -113,6 +113,42 @@
     };
   };
 
+  # thunar theme
+  gtk = {
+    enable = true;
+
+    # A clean, universally compatible dark theme
+    theme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome-themes-extra;
+    };
+
+    # A beautiful, modern icon set with clear dark-mode folder variants
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+
+    cursorTheme = {
+      name = "Adwaita";
+      package = pkgs.adwaita-icon-theme;
+      size = 24;
+    };
+  };
+
+  # Force Wayland apps to recognize the GTK theme immediately
+  home.sessionVariables = {
+    GTK_THEME = "Adwaita-dark";
+  };
+  # Tweak Thunar preferences cleanly via xfconf
+  xfconf.settings.thunar = {
+    "last-view" = "ThunarDetailsView";          # Clean list view (or use ThunarIconView)
+    "last-side-pane" = "ThunarShortcutsPane";   # Keeps your sidebar active
+    "misc-single-click" = false;                # Double-click to open files (standard behavior)
+    "misc-menubar-visible" = false;             # Hides the ugly top menu bar (Press 'Ctrl + M' to toggle it back if needed!)
+    "misc-draw-border-around-images" = false;   # Borderless look for images
+  };
+
   home.packages = with pkgs; [
     localsend
     xfce.thunar
