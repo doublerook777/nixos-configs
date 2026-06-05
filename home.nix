@@ -5,6 +5,7 @@
       ./modules/niri.nix
       ./modules/waybar.nix
       ./modules/terminal.nix
+      ./modules/mako.nix
   ];
 
   home.username = "caelum";
