@@ -102,7 +102,7 @@
   };
   programs.qylock = {
     enable = true;
-    theme = "pixel-hollowknight";
+    theme = "sword";
   };
 
   # Configure keymap in X11
