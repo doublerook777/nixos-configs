@@ -12,5 +12,5 @@ done
 while true; do
   img=$(find "$WALLPAPER_DIR" -type f | shuf -n 1)
   swww img "$img" --transition-type wave --transition-duration 2 --transition-fps 60
-  sleep 300
+  sleep 600
 done

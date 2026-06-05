@@ -8,7 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      inputs.silentSDDM.nixosModules.default
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -42,6 +41,12 @@
     wifi.scan-rand-mac-address=no
   '';
   networking.nameservers = ["8.8.8.8" "1.1.1.1"];
+
+  #for local send
+  networking.firewall = {
+    allowedTCPPorts = [ 53317 ];
+    allowedUDPPorts = [ 53317 ];
+  };
 
   # Bluetooth
   hardware.bluetooth.enable = true;
@@ -82,10 +87,24 @@
   };
 
   # Display manager
-  programs.silentSDDM = {
-      enable = true;
-      theme = "silvia";
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    extraPackages = with pkgs; [
+      qt6.qt5compat
+      kdePackages.qt5compat
+    ];
+    settings = {
+      General = {
+        GreeterEnvironment = "QML2_IMPORT_PATH=${pkgs.qt6.qt5compat}/lib/qt-6/qml:${pkgs.kdePackages.qt5compat}/lib/qt-6/qml";
+      };
+    };
   };
+  programs.qylock = {
+    enable = true;
+    theme = "pixel-hollowknight";
+  };
+
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
@@ -143,8 +162,6 @@
       ];
     };
   };
-  # Enable sound.
-  # services.pulseaudio.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
@@ -235,6 +252,7 @@
     python3
     uv
     libnotify
+    qt6.qt5compat
   ];
 
   fonts.packages = with pkgs; [

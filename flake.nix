@@ -10,10 +10,12 @@
         url = "github:uiriansan/SilentSDDM";
         inputs.nixpkgs.follows = "nixpkgs";
       };
-
+      qylock = {
+          url = "github:Darkkal44/qylock";
+      };
   };
 
-  outputs = { self, nixpkgs, home-manager, ...} @ inputs: {
+  outputs = { self, nixpkgs, home-manager, qylock, ...} @ inputs: {
 	    nixosConfigurations.caelums-nix = nixpkgs.lib.nixosSystem {
 	        system = "x86_64-linux";
           # this passes the silentSDDM input to configuration.nix
@@ -21,6 +23,7 @@
 	        
           modules = [
 		          ./configuration.nix 
+              qylock.nixosModules.default
 		          home-manager.nixosModules.home-manager
 		          {
 		              home-manager = {
