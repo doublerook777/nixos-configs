@@ -152,7 +152,7 @@
       Mod+V       { toggle-window-floating; }
       Mod+Shift+V { switch-focus-between-floating-and-tiling; }
 
-      Mod+W { toggle-column-tabbed-display; }
+      Mod+W { spawn "bash" "/home/caelum/nixos-configs/scripts/wallpaper-picker.sh"; }
   }
   '';
 }
