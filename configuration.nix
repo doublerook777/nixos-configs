@@ -253,6 +253,7 @@
     uv
     libnotify
     qt6.qt5compat
+    loupe
   ];
 
   fonts.packages = with pkgs; [
