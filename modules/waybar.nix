@@ -21,7 +21,7 @@
         ];
 
         modules-right = [
-          "mpris"
+          #"mpris"
           "tray"
           "pulseaudio#microphone"
           "pulseaudio"

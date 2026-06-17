@@ -6,7 +6,7 @@ chosen=$(find "$WALLPAPER_DIR" -type f | sed 's|.*/||' | fuzzel --dmenu --prompt
 
 [ -z "$chosen" ] && exit 0
 
-swww img "$WALLPAPER_DIR/$chosen" \
+awww img "$WALLPAPER_DIR/$chosen" \
   --transition-type wave \
   --transition-duration 2 \
   --transition-fps 60

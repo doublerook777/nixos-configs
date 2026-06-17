@@ -30,6 +30,7 @@
           ll = "eza -l --icons --color=always";
           la = "eza -la --icons --color=always";
           lt = "eza --tree --icons --color=always";
+	        vim = "nvim";
 	    };
   };
 
@@ -48,12 +49,6 @@
       layout = [
         { label = "shutdown"; text = "Shutdown"; keybind = "s"; action = "systemctl poweroff"; } { label = "reboot"; text = "Reboot"; keybind = "r"; action = "systemctl reboot"; } { label = "logout"; text = "Logout"; keybind = "l"; action = "niri msg action quit"; } { label = "hibernate"; text = "Hibernate"; keybind = "h"; action = "systemctl hibernate"; }
       ];
-  };
-
-  programs.neovim = {
-      enable = true;
-      defaultEditor = true;
-      vimAlias = true;
   };
 
   xdg.desktopEntries.yazi = {
@@ -152,6 +147,7 @@
   # Force Wayland apps to recognize the GTK theme immediately
   home.sessionVariables = {
     GTK_THEME = "Adwaita-dark";
+    EDITOR = "nvim";
   };
   # Tweak Thunar preferences cleanly via xfconf
   xfconf.settings.thunar = {
@@ -164,7 +160,7 @@
 
   home.packages = with pkgs; [
     localsend
-    xfce.thunar
+    thunar
   ];
 
 }

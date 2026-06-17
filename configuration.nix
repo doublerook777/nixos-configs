@@ -128,41 +128,8 @@
         "default.clock.max-quantum" = 2048;
       };
     };
-    
-    extraConfig.pipewire."99-noise-cancel" = {
-      "context.modules" = [
-        {
-          name = "libpipewire-module-filter-chain";
-          args = {
-            "node.description" = "Noise Canceling Mic";
-            "media.name" = "Noise Canceling Mic";
-            "filter.graph" = {
-              nodes = [
-                {
-                  type = "ladspa";
-                  name = "rnnoise";
-                  plugin = "${pkgs.rnnoise-plugin}/lib/ladspa/librnnoise_ladspa.so";
-                  label = "noise_suppressor_mono";
-                  control = { "VAD Threshold (%)" = 15.0; };
-                }
-              ];
-            };
-            "capture.props" = {
-              "node.name" = "capture.rnnoise_source";
-              "node.passive" = true;
-              "audio.rate" = 48000;
-            };
-            "playback.props" = {
-              "node.name" = "rnnoise_source";
-              "media.class" = "Audio/Source";
-              "audio.rate" = 48000;
-            };
-          };
-        }
-      ];
-    };
   };
-
+    
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
@@ -175,13 +142,26 @@
     ];
   };
 
-    # Enable Thunar service natively
+  # Enable Thunar service natively
   programs.thunar = {
     enable = true;
     plugins = with pkgs.xfce; [
       thunar-archive-plugin # Allows right-click "Extract Here"
       thunar-volman         # Manages removable drives
     ];
+  };
+
+  # battery optimizations
+  services.tlp = {
+    enable = true;
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+      CPU_MIN_PERF_ON_BAT = 0;
+      CPU_MAX_PERF_ON_BAT = 80;  # tune to taste };
+    };
   };
 
   # Essential background services for a standalone window manager setup
@@ -254,6 +234,7 @@
     libnotify
     qt6.qt5compat
     loupe
+    powertop
   ];
 
   fonts.packages = with pkgs; [
