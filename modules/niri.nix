@@ -23,7 +23,7 @@
   spawn-at-startup "waybar"
   spawn-at-startup "nm-applet" "--indicator"
   spawn-at-startup "blueman-applet"
-  spawn-at-startup "swww-daemon"
+  spawn-at-startup "awww-daemon"
   spawn-at-startup "bash" "/home/caelum/nixos-configs/scripts/wallpaper.sh"
   
   layout {

@@ -228,8 +228,8 @@
     qalculate-gtk
     yazi
     starship
-    swww
     mpv
+    awww
     strawberry
     nh
     fastfetch
