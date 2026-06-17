@@ -63,7 +63,6 @@
   boot.resumeDevice = "/dev/nvme0n1p8";
   boot.kernelParams = [ 
       "resume_offset=22482944"
-      "mem_sleep_default=deep"
   ];
 
   systemd.sleep.settings.Sleep = {
