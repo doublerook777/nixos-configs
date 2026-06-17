@@ -10,7 +10,7 @@
 
   home.username = "caelum";
   home.homeDirectory = "/home/caelum";
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
   programs.bash = {
 	    enable = true;
       enableCompletion = true;
