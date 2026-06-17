@@ -34,7 +34,7 @@
   # wifi optimizations
   environment.etc."NetworkManager/conf.d/wifi.conf".text = ''
     [connection]
-    wifi.powersave = 2
+    wifi.powersave = 3
     wifi.cloned-mac-address=permanent
 
     [device]
