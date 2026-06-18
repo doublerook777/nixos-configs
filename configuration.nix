@@ -97,6 +97,9 @@
       General = {
         GreeterEnvironment = "QML2_IMPORT_PATH=${pkgs.qt6.qt5compat}/lib/qt-6/qml:${pkgs.kdePackages.qt5compat}/lib/qt-6/qml";
       };
+      Theme = {
+        CursorTheme = "Adwaita";
+      };
     };
   };
   programs.qylock = {
