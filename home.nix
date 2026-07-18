@@ -137,11 +137,12 @@
       package = pkgs.papirus-icon-theme;
     };
 
-    cursorTheme = {
-      name = "Adwaita";
-      package = pkgs.adwaita-icon-theme;
-      size = 24;
-    };
+  };
+
+  catppuccin.cursors = {
+    enable = true;
+    accent = "dark";
+    flavor = "mocha";
   };
 
   # Force Wayland apps to recognize the GTK theme immediately

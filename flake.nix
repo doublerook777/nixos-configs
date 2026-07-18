@@ -13,9 +13,13 @@
       qylock = {
           url = "github:Darkkal44/qylock";
       };
+      catppuccin = {
+        url = "github:catppuccin/nix";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
   };
 
-  outputs = { self, nixpkgs, home-manager, qylock, ...} @ inputs: {
+  outputs = { self, nixpkgs, home-manager, qylock, catppuccin, ...} @ inputs: {
 	    nixosConfigurations.caelums-nix = nixpkgs.lib.nixosSystem {
 	        system = "x86_64-linux";
           # this passes the silentSDDM input to configuration.nix
@@ -24,12 +28,18 @@
           modules = [
 		          ./configuration.nix 
               qylock.nixosModules.default
+              catppuccin.nixosModules.catppuccin
 		          home-manager.nixosModules.home-manager
 		          {
 		              home-manager = {
 			                useGlobalPkgs = true;
 			                useUserPackages = true;
-			                users.caelum = import ./home.nix;
+			                users.caelum = {
+                        imports = [
+                          ./home.nix
+                          catppuccin.homeModules.catppuccin
+                        ];
+                      };
 			                backupFileExtension = "backup";
 		              };
 		          }

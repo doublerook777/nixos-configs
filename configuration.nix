@@ -82,7 +82,7 @@
   # Wayland session variables
   environment.sessionVariables = {
       NIXOS_OZONE_WL = "1";
-      WLR_NO_HARDWARE_CURSORS = "1";
+     # WLR_NO_HARDWARE_CURSORS = "1";
   };
 
   # Display manager
@@ -95,16 +95,15 @@
     ];
     settings = {
       General = {
-        GreeterEnvironment = "QML2_IMPORT_PATH=${pkgs.qt6.qt5compat}/lib/qt-6/qml:${pkgs.kdePackages.qt5compat}/lib/qt-6/qml";
-      };
-      Theme = {
-        CursorTheme = "Adwaita";
+        GreeterEnvironment = "QML2_IMPORT_PATH=${pkgs.qt6.qt5compat}/lib/qt-6/qml:${pkgs.kdePackages.qt5compat}/lib/qt-6/qml,XCURSOR_THEME=catppuccin-mocha-dark-cursors,XCURSOR_SIZE=24";
+        CursorTheme = "catppuccin-mocha-dark-cursors"; 
+        CursorSize = 24;
       };
     };
   };
   programs.qylock = {
     enable = true;
-    theme = "sword";
+    theme = "R1999_1";
   };
 
   # Configure keymap in X11
@@ -162,7 +161,7 @@
       CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
       CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
       CPU_MIN_PERF_ON_BAT = 0;
-      CPU_MAX_PERF_ON_BAT = 80;  # tune to taste };
+      CPU_MAX_PERF_ON_BAT = 80;
     };
   };
 
@@ -242,6 +241,12 @@
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
+  
+  catppuccin.cursors = {
+    enable = true;
+    accent = "dark";
+    flavor = "mocha";
+  };
 
   # Enabling Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
