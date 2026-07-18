@@ -162,6 +162,9 @@
   home.packages = with pkgs; [
     localsend
     thunar
+    fd
+    basedpyright                                # LSP for python
+    ruff                                        # code formatter for python
   ];
 
 }
