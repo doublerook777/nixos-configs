@@ -88,7 +88,10 @@
   # Display manager
   services.displayManager.sddm = {
     enable = true;
-    wayland.enable = true;
+    wayland = {
+      enable = true;
+      compositor = "kwin";
+    };
     extraPackages = with pkgs; [
       qt6.qt5compat
       kdePackages.qt5compat
@@ -103,7 +106,7 @@
   };
   programs.qylock = {
     enable = true;
-    theme = "R1999_1";
+    theme = "last-of-us";
   };
 
   # Configure keymap in X11
@@ -146,7 +149,7 @@
   # Enable Thunar service natively
   programs.thunar = {
     enable = true;
-    plugins = with pkgs.xfce; [
+    plugins = with pkgs; [
       thunar-archive-plugin # Allows right-click "Extract Here"
       thunar-volman         # Manages removable drives
     ];
@@ -242,6 +245,8 @@
     nerd-fonts.jetbrains-mono
   ];
   
+  catppuccin.enable = true;
+  catppuccin.sddm.enable = false;
   catppuccin.cursors = {
     enable = true;
     accent = "dark";

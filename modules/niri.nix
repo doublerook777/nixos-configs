@@ -153,6 +153,7 @@
       Mod+Shift+V { switch-focus-between-floating-and-tiling; }
 
       Mod+W { spawn "bash" "/home/caelum/nixos-configs/scripts/wallpaper-picker.sh"; }
+      Mod+Escape allow-when-locked=true { spawn "qylock-lock"; }
   }
   '';
 }

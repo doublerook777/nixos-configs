@@ -139,6 +139,8 @@
 
   };
 
+  catppuccin.enable = true;
+  catppuccin.gtk.icon.enable = false; # or else will collide with thunar's gtk theme
   catppuccin.cursors = {
     enable = true;
     accent = "dark";
@@ -149,6 +151,30 @@
   home.sessionVariables = {
     GTK_THEME = "Adwaita-dark";
     EDITOR = "nvim";
+    XCURSOR_THEME = "catppuccin-mocha-dark-cursors";
+    XCURSOR_SIZE = "24";
+  };
+
+  services.swayidle = {
+    enable = true;
+    timeouts = [
+      {
+        timeout = 300;
+        command = "${pkgs.libnotify}/bin/notify-send 'Locking soon' -t 5000";
+      }
+      {
+        timeout = 305;
+        command = "qylock-lock";
+      }
+      {
+        timeout = 600;
+        command = "${pkgs.niri}/bin/niri msg action power-off-monitors";
+        resumeCommand = "${pkgs.niri}/bin/niri msg action power-on-monitors";
+      }
+    ];
+    events = {
+      before-sleep = "qylock-lock";
+    };
   };
   # Tweak Thunar preferences cleanly via xfconf
   xfconf.settings.thunar = {
@@ -165,6 +191,7 @@
     fd
     basedpyright                                # LSP for python
     ruff                                        # code formatter for python
+    fzf
   ];
 
 }
