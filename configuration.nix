@@ -165,6 +165,8 @@
       CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
       CPU_MIN_PERF_ON_BAT = 0;
       CPU_MAX_PERF_ON_BAT = 80;
+      RUNTIME_PM_ON_AC = "auto";
+      RUNTIME_PM_ON_BAT = "auto";
     };
   };
 
@@ -207,7 +209,6 @@
     gcc
     ripgrep
     curl
-    wlogout
     blueman
     qalculate-gtk
     yazi

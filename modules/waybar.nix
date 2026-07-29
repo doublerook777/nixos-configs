@@ -117,7 +117,7 @@
 
         "custom/power" = {
           format = "⏻";
-          on-click = "wlogout -b 2";
+          on-click = "bash /home/caelum/nixos-configs/scripts/powermenu.sh";
           tooltip = false;
         };
       };

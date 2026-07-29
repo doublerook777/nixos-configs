@@ -43,7 +43,7 @@
       Print { screenshot; }
       Ctrl+Print { screenshot-screen; }
       Alt+Print { screenshot-window; }
-      Alt+F4 { spawn "wlogout" "-b" "2"; }
+      Alt+F4 { spawn "bash" "/home/caelum/nixos-configs/scripts/powermenu.sh"; }
 
       // Focus and window movement
         
