@@ -24,7 +24,7 @@
       '';
 	    shellAliases = {
 	        hcheck = "echo looks good";
-	        rebuild = "sudo nixos-rebuild switch --flake ~/nixos-configs#caelums-nix";
+          rebuild = "cd ~/nixos-configs && git add -f files/ && sudo nixos-rebuild switch --flake ~/nixos-configs#caelums-nix && git reset files/";
 	        update = "sudo nix flake update --flake ~/nixos-configs";
           clean = "sudo nix-collect-garbage -d";
           ls = "eza --icons --color=always";
