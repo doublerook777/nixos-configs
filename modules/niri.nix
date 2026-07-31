@@ -15,6 +15,10 @@
             natural-scroll
             dwt
         }
+        mouse {
+            scroll-factor 0.7
+            accel-speed -0.3
+          }
         focus-follows-mouse max-scroll-amount="0%"
 
     }
