@@ -7,6 +7,7 @@
       ./modules/terminal.nix
       ./modules/mako.nix
       ./modules/tldraw.nix
+      ./modules/rofi.nix
   ];
 
   home.username = "caelum";
@@ -21,10 +22,17 @@
           bind '"\e[Z": menu-complete-backward'
           bind "set completion-ignore-case on"
           bind "set colored-stats on"
+
+          rebuild() {
+              cd ~/nixos-configs || return 1
+              git add -A
+              git add -f files/
+              trap 'git-reset' EXIT
+              sudo nixos-rebuild switch --flake ~/nixos-configs#caelums-nix
+          }
       '';
 	    shellAliases = {
 	        hcheck = "echo looks good";
-          rebuild = "cd ~/nixos-configs && git add -f files/ && sudo nixos-rebuild switch --flake ~/nixos-configs#caelums-nix && git reset files/";
 	        update = "sudo nix flake update --flake ~/nixos-configs";
           clean = "sudo nix-collect-garbage -d";
           ls = "eza --icons --color=always";

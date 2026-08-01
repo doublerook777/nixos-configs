@@ -240,6 +240,7 @@
     qt6.qt5compat
     loupe
     powertop
+    jq
   ];
 
   fonts.packages = with pkgs; [

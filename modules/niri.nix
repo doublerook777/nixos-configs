@@ -48,6 +48,7 @@
       Ctrl+Print { screenshot-screen; }
       Alt+Print { screenshot-window; }
       Alt+F4 { spawn "bash" "/home/caelum/nixos-configs/scripts/powermenu.sh"; }
+      Mod+Space { spawn "bash" "/home/caelum/nixos-configs/scripts/desktop-menu.sh"; }
 
       // Focus and window movement
         
