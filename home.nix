@@ -27,7 +27,7 @@
               cd ~/nixos-configs || return 1
               git add -A
               git add -f files/
-              trap 'git-reset' EXIT
+              trap 'git reset files/ >/dev/null' RETURN
               sudo nixos-rebuild switch --flake ~/nixos-configs#caelums-nix
           }
       '';
@@ -142,6 +142,7 @@
   };
 
   catppuccin.enable = true;
+  catppuccin.autoEnable = true;
   catppuccin.gtk.icon.enable = false; # or else will collide with thunar's gtk theme
   catppuccin.cursors = {
     enable = true;

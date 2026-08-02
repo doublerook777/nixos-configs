@@ -248,6 +248,7 @@
   ];
   
   catppuccin.enable = true;
+  catppuccin.autoEnable = true;
   catppuccin.sddm.enable = false;
   catppuccin.cursors = {
     enable = true;
