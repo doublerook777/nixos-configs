@@ -9,6 +9,8 @@
   xdg.configFile."rofi/context-menu.rasi".text = ''
       configuration {
         show-icons: false;
+        kb-row-up: "Up,k,Control+p";
+        kb-row-down: "Down,j,Control+n";
       }
 
       * {
