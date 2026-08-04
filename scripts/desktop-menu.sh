@@ -3,7 +3,7 @@
 THEME="$HOME/.config/rofi/context-menu.rasi"
 SCRIPTS="/home/caelum/nixos-configs/scripts"
 
-chosen=$(printf "Terminal\nFile Manager\nLock\nDisplay Switcher\nAudio Switcher" | rofi -dmenu -theme "$THEME")
+chosen=$(printf "Terminal\nFile Manager\nLock\nDisplay Switcher\nAudio Switcher\nNetwork" | rofi -dmenu -theme "$THEME")
 
 case "$chosen" in
 "Terminal") kitty ;;
@@ -11,4 +11,5 @@ case "$chosen" in
 "Lock") qylock-lock ;;
 "Display Switcher") bash "$SCRIPTS/display-switcher.sh" ;;
 "Audio Switcher") bash "$SCRIPTS/audio-switcher.sh" ;;
+"Network") bash "$SCRIPTS/network-menu.sh" ;;
 esac

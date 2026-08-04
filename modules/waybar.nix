@@ -76,7 +76,7 @@
         };
 
         "network" = {
-          on-click = "kitty --title nmtui -e nmtui";
+          on-click = "bash /home/caelum/nixos-configs/scripts/network-menu.sh";
           format-wifi = "󰤨 {essid}";
           format-disconnected = "󰤭 disconnected";
           tooltip = true;
