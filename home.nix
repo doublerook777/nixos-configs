@@ -41,7 +41,7 @@
           la = "eza -la --icons --color=always";
           lt = "eza --tree --icons --color=always";
 	        vim = "nvim";
-          pkginstall = "bash ~/nixos-configs/scripts/pkg-install.sh";
+          pkginstall = "bash ~/nixos-configs/scripts/pkgmgr.sh";
 	    };
   };
 
