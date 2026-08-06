@@ -35,11 +35,13 @@
 	        hcheck = "echo looks good";
 	        update = "sudo nix flake update --flake ~/nixos-configs";
           clean = "sudo nix-collect-garbage -d";
+          clean-complete = "sudo nix-collect-garbage -d --option keep-outputs false -- options keep-derivations false";
           ls = "eza --icons --color=always";
           ll = "eza -l --icons --color=always";
           la = "eza -la --icons --color=always";
           lt = "eza --tree --icons --color=always";
 	        vim = "nvim";
+          pkginstall = "bash ~/nixos-configs/scripts/pkg-install.sh";
 	    };
   };
 
@@ -179,6 +181,12 @@
       before-sleep = "qylock-lock";
     };
   };
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
   # Tweak Thunar preferences cleanly via xfconf
   xfconf.settings.thunar = {
     "last-view" = "ThunarDetailsView";          # Clean list view (or use ThunarIconView)
@@ -195,6 +203,8 @@
     basedpyright                                # LSP for python
     ruff                                        # code formatter for python
     fzf
+    foliate
+    spotify
   ];
 
 }
