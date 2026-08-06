@@ -41,7 +41,7 @@
           la = "eza -la --icons --color=always";
           lt = "eza --tree --icons --color=always";
 	        vim = "nvim";
-          pkginstall = "bash ~/nixos-configs/scripts/pkgmgr.sh";
+          pkgmgr = "bash ~/nixos-configs/scripts/pkgmgr.sh";
 	    };
   };
 
@@ -204,7 +204,6 @@
     ruff                                        # code formatter for python
     fzf
     foliate
-    spotify
   ];
 
 }
