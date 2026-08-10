@@ -17,12 +17,15 @@
         url = "github:catppuccin/nix";
         inputs.nixpkgs.follows = "nixpkgs";
       };
+      sidra = {
+        url = "github:wimpysworld/sidra";
+      };
   };
 
   outputs = { self, nixpkgs, home-manager, qylock, catppuccin, ...} @ inputs: {
 	    nixosConfigurations.caelums-nix = nixpkgs.lib.nixosSystem {
 	        system = "x86_64-linux";
-          # this passes the silentSDDM input to configuration.nix
+          # this passes the inputs to configuration.nix
           specialArgs = { inherit inputs; };
 	        
           modules = [
@@ -34,6 +37,7 @@
 		              home-manager = {
 			                useGlobalPkgs = true;
 			                useUserPackages = true;
+                      extraSpecialArgs = { inherit inputs; };
 			                users.caelum = {
                         imports = [
                           ./home.nix

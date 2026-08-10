@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -204,6 +204,7 @@
     ruff                                        # code formatter for python
     fzf
     foliate
+    inputs.sidra.packages.${pkgs.system}.default
   ];
 
 }

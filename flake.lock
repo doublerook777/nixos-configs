@@ -90,6 +90,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1785318670,
+        "narHash": "sha256-dN6Ou5x/+23FZLEpYP3IffO+NyJFzUlGumt1uu3MMaY=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "0954f7ee2f6bb3dc7d4e3d0d8bcb8fd4bde4cfc5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "qylock": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -115,7 +131,26 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "qylock": "qylock",
+        "sidra": "sidra",
         "silentSDDM": "silentSDDM"
+      }
+    },
+    "sidra": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1785827118,
+        "narHash": "sha256-tS2eSSpa1uLPUyIAJBpf00+A9KSHpC92gKMLavmHuio=",
+        "owner": "wimpysworld",
+        "repo": "sidra",
+        "rev": "0597e5438fe98fef935cb528c2c9aa5db60171c9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "wimpysworld",
+        "repo": "sidra",
+        "type": "github"
       }
     },
     "silentSDDM": {
