@@ -241,6 +241,7 @@
     loupe
     powertop
     jq
+    cava
   ];
 
   fonts.packages = with pkgs; [
