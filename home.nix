@@ -176,6 +176,10 @@
         command = "${pkgs.niri}/bin/niri msg action power-off-monitors";
         resumeCommand = "${pkgs.niri}/bin/niri msg action power-on-monitors";
       }
+      {
+        timeout = 1800;
+        command = "${pkgs.systemd}/bin/systemctl hibernate";
+      }
     ];
     events = {
       before-sleep = "qylock-lock";

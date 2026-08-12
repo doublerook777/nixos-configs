@@ -106,7 +106,7 @@
   };
   programs.qylock = {
     enable = true;
-    theme = "last-of-us";
+    theme = "pixel-emerald";
   };
 
   # Configure keymap in X11
@@ -270,6 +270,9 @@
 
   # allowing unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  # enabling faltpack
+  services.flatpak.enable = true;
 
   # Enabling Flakes and preventing build inputs from reinstalling after clean
   nix.settings = {
