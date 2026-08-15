@@ -274,6 +274,13 @@
   # enabling faltpack
   services.flatpak.enable = true;
 
+  # automatic garbage collect
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
+
   # Enabling Flakes and preventing build inputs from reinstalling after clean
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
