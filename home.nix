@@ -35,7 +35,7 @@
 	        hcheck = "echo looks good";
 	        update = "sudo nix flake update --flake ~/nixos-configs";
           clean = "sudo nix-collect-garbage -d";
-          clean-complete = "sudo nix-collect-garbage -d --option keep-outputs false -- options keep-derivations false";
+          clean-complete = "sudo nix-collect-garbage -d --option keep-outputs false --option keep-derivations false";
           ls = "eza --icons --color=always";
           ll = "eza -l --icons --color=always";
           la = "eza -la --icons --color=always";
